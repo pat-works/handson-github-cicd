@@ -1,0 +1,13 @@
+name: Test
+on:
+  pull_request:             # プルリクエスト
+    paths: ['go/**/*.go']   # goファイルのパスでイベントをフィルタリング
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7       # ソースコードのチェックアウト
+      - uses: actions/setup-go@v6       # go言語のセットアップ
+        with:
+          go-version: '1.26'
+      - run: go test go/excellent/*.go  # テストの実行

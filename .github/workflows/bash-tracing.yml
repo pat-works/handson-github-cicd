@@ -1,0 +1,10 @@
+name: Bash tracing
+on: push
+jobs:
+  log:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |  # Bashのトレーシングオプション(set -x)により、実行時にコマンド名が出力される
+          set -x
+          date
+          hostname

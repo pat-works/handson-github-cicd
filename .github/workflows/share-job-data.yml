@@ -10,8 +10,8 @@ jobs:
       result: ${{ steps.generate.outputs.result }}      # ジョブレベルの出力値
   after:
     runs-on: ubuntu-latest
-    needs: [before]
+    needs: [before]                                     # 依存するジョブIDの指定
     steps:
       - env:
-          RESULT: ${{ needs.before.outputs.result }}
+          RESULT: ${{ needs.before.outputs.result }}    # 依存ジョブの出力値を参照
         run: echo "${RESULT}"

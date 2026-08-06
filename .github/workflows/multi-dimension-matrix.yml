@@ -3,12 +3,12 @@ on: push
 jobs:
   print:
     strategy:
-      matrix:
-        os: [ubuntu-latest, macos-latest]
-        version: [22, 24]
-    runs-on: ${{ matrix.os }}
+      matrix:                                       # 多次元マトリックスの定義
+        os: [ubuntu-latest, macos-latest]           # osプロパティの定義
+        version: [22, 24]                           # versionプロパティの定義
+    runs-on: ${{ matrix.os }}                       # osプロパティの参照
     steps:
       - uses: actions/setup-node@v7
         with:
-          node-version: ${{ matrix.version }}
+          node-version: ${{ matrix.version }}       # versionプロパティの参照
       - run: echo "${RUNNER_OS}" && node --version

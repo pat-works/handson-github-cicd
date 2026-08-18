@@ -1,9 +1,9 @@
 name: Environments
 on:
-  workflow_dispatch:    # 手動実行
+  workflow_dispatch:        # 手動実行
     inputs:
-      environment-name: # 入力パラメータでEnvironmentsを切り替える
-        type: environment
+      environment-name:     # 入力パラメータでEnvironmentsを切り替える
+        type: environment   # Environment名のみを受け付ける型
         default: test
         required: false
         description: Environment name
@@ -16,4 +16,4 @@ jobs:
       PASSWORD: ${{ secrets.PASSWORD }}
     steps:
       - run: echo "${USERNAME}"
-      - run: echo "${PASSWORD:0:1} ${PASSWORD#?}"
+      - run: echo "${PASSWORD:0:1} ${PASSWORD#?}" # 動作確認のためマスクを回避（1文字目 + スペース + 1文字目を削除した残りの文字列）

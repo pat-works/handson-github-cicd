@@ -25,5 +25,5 @@ runs:
       shell: bash
     # ダンプ日時をGITHUB_OUTPUTに出力する
     - id: current
-      run: echo "date=${date}" >> "${GITHUB_OUTPUT}"
+      run: echo "date=$(date)" >> "${GITHUB_OUTPUT}"
       shell: bash

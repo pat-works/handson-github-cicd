@@ -2,15 +2,15 @@ name: Dump          # アクション名
 description: |      # アクションの概要
   環境変数とgithubコンテキストをログへ出力します。
   ワークフローのデバッグに便利です。
-inputs:             # アクションの入力
-  enable-context:
-    default: 'true'
-    required: false
-    description: コンテキストをログ出力するか
-outputs:            # アクションの出力
-  dumped-date:
-    value: ${{ steps.current.outputs.date }}
-    description: ダンプ日時
+inputs:                                       # アクションの入力パラメータ
+  enable-context:                               # 入力ID
+    default: 'true'                             # デフォルト値
+    required: false                             # 必須フラグ
+    description: コンテキストをログ出力するか     # 概要
+outputs:                                      # アクションの出力値
+  dumped-date:                                  # 出力ID
+    value: ${{ steps.current.outputs.date }}    # 出力値
+    description: ダンプ日時                      # 概要
 runs:
   using: composite  # アクションの実装方式
   steps:            # アクションのメインロジック

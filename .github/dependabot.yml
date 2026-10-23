@@ -1,0 +1,15 @@
+# Dependabotの設定ファイル
+# https://docs.github.com/ja/code-security/reference/supply-chain-security/dependabot-options-reference
+
+version: 2    # 設定ファイル自体のバージョン（常に「2」）
+updates:      # 依存関係のアップデート設定
+  - package-ecosystem: github-actions   # パッケージエコシステム（パッケージマネージャーやツールの識別子）
+    directory: /                        # パッケージマニフェストの配置先ディレクトリ（GitHub Actionsの場合は常に「/」）
+    schedule:                           # バージョンアップスケジュール
+      interval: daily                   # 更新あたりの変更点を小さく保つため、可能な限り短く設定(daily, weekly, montyly)
+
+# npm管理の依存関係がある場合の例
+# - package-ecosystem: npm
+#   directory: /                        # パッケージマニフェスト(package.json)の配置先
+#   schedule:
+#     interval: daily
